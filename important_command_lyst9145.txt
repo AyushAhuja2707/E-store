@@ -1,0 +1,53 @@
+Important Commands
+
+database: mysql 8.x
+
+java 18
+
+________________________________
+
+sudo su
+
+sudo apt update
+
+=>docker network create bootApp
+
+running mysql
+
+=>docker run -d --name mysqldb -p 3308:3306 --network=bootApp -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=electronic_store -v /projects/data:/var/lib/mysql mysql
+
+docker run -d --name mysqldb -p 3308:3306 --network=bootApp -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=ayush_store -v mysql
+
+creating docker image of our app
+
+=>docker build -t electronic .
+
+=>docker run -it --name store -p 9091:9090 --network=bootApp -e MYSQL_HOST=mysqldb -e MYSQL_PORT=3306 durgeshkumar26/electronic1.0:latest
+
+docker run -it --name store -p 9091:9090 --network=bootApp -e MYSQL_HOST=mysqldb -e MYSQL_PORT=3306 -e MYSQL_PASSWORD=root ayushstore2
+ayushahuja200135/ayush1.0:latest
+
+=>docker run -d --name store -p 9091:9090 --network=bootApp -e MYSQL_HOST=mysqldb -e MYSQL_PORT=3306 -e MYSQL_PASSWORD=root ayushahuja200135/ayush1.0:latest
+
+ -v /projects/images:/images durgeshkumar26/electronic1.0:latest
+
+docker pull durgeshkumar26/electronic1.0:latest
+
+docker pull ayushahuja200135/ayush1.0:latest
+________________________________________________________
+
+Remove any Docker files that are running in the system, using the following command:
+
+=>apt-get remove docker docker-engine docker.io
+
+install docker
+
+=>apt install docker.io
+
+
+docker pull ayushahuja/ayushstore
+_______________________________________________________________
+
+login into aws console
+
+ssh -i "bootcourse.pem" ubuntu@15.206.243.179
