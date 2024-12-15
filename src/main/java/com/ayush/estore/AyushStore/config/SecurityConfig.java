@@ -56,32 +56,31 @@ public class SecurityConfig {
         // cors ko hame abhi ke lie disable kiy hai
         // isko ham log baad mein sikhenge
         System.out.println("AALA" + security.toString());
-        // security.cors(httpSecurityCorsConfigurer ->
-        // httpSecurityCorsConfigurer.disable());
+        security.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.disable());
         // csrf ko hame abhi ke lie disable kiy hai
 
-        security.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer
-                .configurationSource(new CorsConfigurationSource() {
-                    @Override
-                    public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
-                        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        // security.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer
+        // .configurationSource(new CorsConfigurationSource() {
+        // @Override
+        // public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+        // CorsConfiguration corsConfiguration = new CorsConfiguration();
 
-                        // origins
-                        // methods
-                        // corsConfiguration.addAllowedOrigin("http://localhost:4200");
+        // // origins
+        // // methods
+        // // corsConfiguration.addAllowedOrigin("http://localhost:4200");
 
-                        corsConfiguration.setAllowedOrigins(List.of("http://localhost:4200",
-                                "http://localhost:4300", "http://localhost:4300"));
-                        // not used in prod
-                        // corsConfiguration.setAllowedOriginPatterns(List.of("*"));
-                        corsConfiguration.setAllowedMethods(List.of("*"));
-                        corsConfiguration.setAllowCredentials(true);
-                        corsConfiguration.setAllowedHeaders(List.of("*"));
-                        corsConfiguration.setMaxAge(4000L);
+        // corsConfiguration.setAllowedOrigins(List.of("http://localhost:4200",
+        // "http://localhost:4300", "http://localhost:4300"));
+        // // not used in prod
+        // // corsConfiguration.setAllowedOriginPatterns(List.of("*"));
+        // corsConfiguration.setAllowedMethods(List.of("*"));
+        // corsConfiguration.setAllowCredentials(true);
+        // corsConfiguration.setAllowedHeaders(List.of("*"));
+        // corsConfiguration.setMaxAge(4000L);
 
-                        return corsConfiguration;
-                    }
-                }));
+        // return corsConfiguration;
+        // }
+        // }));
 
         // // isko ham log baad mein sikhenge
         security.csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable());
